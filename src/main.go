@@ -136,6 +136,20 @@ func ExecuteMultipleNumbersOperation(val1, val2 string) {
 
 }
 
+func contains[T comparable](val T, array []T) bool {
+	for _, x := range array {
+		if x == val {
+			return true
+		}
+	}
+	return false
+}
+
+func PrintHelpMessage(progName string) {
+		fmt.Printf("%sUsage: %s <number> Ex: %s 10 %s\n", Yellow, progName, progName, Reset)
+		fmt.Printf("%sUsage: %s <number1> <number2> Ex: %s 10 5, it will also calculate GCD and LCM %s\n", Yellow, progName, progName, Reset)
+}
+
 func main() {
 
 	Initialize()
@@ -143,10 +157,15 @@ func main() {
 	nameOfTheProgram := os.Args[0]
 
 	if len(os.Args) == 1 {
-		fmt.Printf("%sUsage: %s <number> Ex: %s 10 %s\n", Yellow, nameOfTheProgram, nameOfTheProgram, Reset)
-		fmt.Printf("%sUsage: %s <number1> <number2> Ex: %s 10 5, it will also calculate GCD and LCM %s\n", Yellow, nameOfTheProgram, nameOfTheProgram, Reset)
+		PrintHelpMessage(nameOfTheProgram)
 		return
 	}
+
+	if contains("--help", os.Args) || contains("--help", os.Args) {
+		PrintHelpMessage(nameOfTheProgram)
+		return
+	}
+
 
 	if len(os.Args) == 3 {
 		selectedNumber1 := os.Args[1]
@@ -155,7 +174,6 @@ func main() {
 		ExecuteBaseConversionForValue(selectedNumber1)
 		ExecuteBaseConversionForValue(selectedNumber2)
 		ExecuteMultipleNumbersOperation(selectedNumber1, selectedNumber2)
-
 		return
 	}
 
