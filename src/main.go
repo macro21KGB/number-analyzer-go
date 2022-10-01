@@ -161,7 +161,7 @@ func main() {
 		return
 	}
 
-	if contains("--help", os.Args) || contains("--help", os.Args) {
+	if contains("--help", os.Args) || contains("-h", os.Args) {
 		PrintHelpMessage(nameOfTheProgram)
 		return
 	}
