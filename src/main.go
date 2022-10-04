@@ -41,6 +41,26 @@ func LCM(x, y int) int {
 	}
 }
 
+func FactorizeValue(input string) {
+
+	value, err := strconv.Atoi(input)
+	if err != nil {
+		fmt.Println(Red + "ERROR: Insert a vaild number" + Reset)
+		return
+	}
+
+	var i int
+
+	fmt.Printf("Factors of %s: %s", input, Blue)
+	for i=1; i <= value; i++ {
+		if value%i == 0 {
+			fmt.Print(strconv.Itoa(i) + " ")
+		}
+	}
+	fmt.Println(Reset)
+
+}
+
 func ConvertToExadecimal(val int) string {
 	outputtedString := ""
 
@@ -174,10 +194,14 @@ func main() {
 		ExecuteBaseConversionForValue(selectedNumber1)
 		ExecuteBaseConversionForValue(selectedNumber2)
 		ExecuteMultipleNumbersOperation(selectedNumber1, selectedNumber2)
+		fmt.Println()
+		FactorizeValue(selectedNumber1)
+		FactorizeValue(selectedNumber2)
 		return
 	}
 
 	selectedNumber := os.Args[1]
 	ExecuteBaseConversionForValue(selectedNumber)
+	FactorizeValue(selectedNumber)
 
 }
