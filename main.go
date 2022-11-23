@@ -52,7 +52,7 @@ func FactorizeValue(input string) {
 	var i int
 
 	fmt.Printf("Factors of %s: %s", input, Blue)
-	for i=1; i <= value; i++ {
+	for i = 1; i <= value; i++ {
 		if value%i == 0 {
 			fmt.Print(strconv.Itoa(i) + " ")
 		}
@@ -132,7 +132,7 @@ func ExecuteBaseConversionForValue(value string) {
 
 	fmt.Println("---- " + value + " ----")
 	fmt.Println("Binary: " + Blue + ConvertNumberToBase(convertedNumber, 2) + Reset)
-	fmt.Println("Otto: " + Green + ConvertNumberToBase(convertedNumber, 8) + Reset)
+	fmt.Println("Ottal: " + Green + ConvertNumberToBase(convertedNumber, 8) + Reset)
 	fmt.Println("Excadecimal: " + Yellow + ConvertToExadecimal(convertedNumber) + Reset)
 	fmt.Println("----------")
 }
@@ -166,8 +166,8 @@ func contains[T comparable](val T, array []T) bool {
 }
 
 func PrintHelpMessage(progName string) {
-		fmt.Printf("%sUsage: %s <number> Ex: %s 10 %s\n", Yellow, progName, progName, Reset)
-		fmt.Printf("%sUsage: %s <number1> <number2> Ex: %s 10 5, it will also calculate GCD and LCM %s\n", Yellow, progName, progName, Reset)
+	fmt.Printf("%sUsage: %s <number> Ex: %s 10 %s\n", Yellow, progName, progName, Reset)
+	fmt.Printf("%sUsage: %s <number1> <number2> Ex: %s 10 5, it will also calculate GCD and LCM %s\n", Yellow, progName, progName, Reset)
 }
 
 func main() {
@@ -185,7 +185,6 @@ func main() {
 		PrintHelpMessage(nameOfTheProgram)
 		return
 	}
-
 
 	if len(os.Args) == 3 {
 		selectedNumber1 := os.Args[1]
